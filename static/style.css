@@ -3,3 +3,79 @@
 /* Copyright 2015 (c) 3005 Army Cadets */
 /*                                     */
 /***************************************/
+body {
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+	font-family: 'Oxygen', sans-serif;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Krona One', sans-serif;
+}
+
+.button {
+	margin: 30px 10px 0 0;
+	padding: 10px;
+	border-radius: 5px;
+	display: inline-block;
+	cursor: pointer;
+	text-decoration: none;
+}
+.button-red{
+	background-color: #F25F5C;
+	color: #26221E;
+}
+.button-yellow {
+	background-color: #FFE066;
+	color: #26221E;
+}
+.button-blue {
+	background-color: #247BA0;
+	color: #26221E;
+}
+
+.block {
+	padding: 50px;
+	font-size: 18px;
+}
+.block-dark {
+	background-color: #26221E;
+	color: #A78C66;
+}
+.block-light {
+	background-color: #4F473A;
+	color: #FFFFFF;
+}
+.center-block {
+	width: 75%;
+	margin: 0 auto;
+}
+
+.half {
+	width: 47%;
+	padding: 1.5%;
+	text-align: justify;
+	display: inline-block;
+}
+.third {
+	width: 30%;
+	padding: 1.5%;
+	text-align: justify;
+	display: inline-block;
+}
+
+.align-left {
+	text-align: left;
+}
+.align-center {
+	text-align: center;
+}
+.align-right {
+	text-align: right;
+}
+
+.giant {
+	font-size: 100px;
+	font-weight: bold;
+	font-family: 'Krona One', sans-serif;
+}
