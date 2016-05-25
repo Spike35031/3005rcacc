@@ -12,7 +12,19 @@ body {
 h1, h2, h3, h4, h5, h6 {
 	font-family: 'Krona One', sans-serif;
 }
-
+img {
+	max-height: 100%;
+	max-width: 100%;
+}
+.center {
+	text-align: center;
+}
+.divider {
+	width: 50%;
+	margin: 0 auto;
+	display: block;
+	padding-bottom: 15px;
+}
 .button {
 	margin: 30px 10px 0 0;
 	padding: 10px;
@@ -35,10 +47,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .block {
-	padding: 50px;
+	height: 100%;
 	font-size: 18px;
+	padding: 50px 0;
 }
-.block-dark {
+.block.footer-block {
+	padding-bottom: 30px;
+}
+
+.block-dark, .block-dark>.half {
 	background-color: #26221E;
 	color: #A78C66;
 }
@@ -52,10 +69,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .half {
-	width: 47%;
-	padding: 1.5%;
-	text-align: justify;
-	display: inline-block;
+	width: 49%;
+	padding: 50px 0;
+	display: table-cell;
 }
 .third {
 	width: 30%;
@@ -63,7 +79,10 @@ h1, h2, h3, h4, h5, h6 {
 	text-align: justify;
 	display: inline-block;
 }
-
+.side-image {
+	background-size: cover;
+	height: 100%;
+}
 .align-left {
 	text-align: left;
 }
@@ -78,4 +97,30 @@ h1, h2, h3, h4, h5, h6 {
 	font-size: 100px;
 	font-weight: bold;
 	font-family: 'Krona One', sans-serif;
+}
+.collapsable {
+	display: none;
+	margin: 15px;
+}
+
+.expand-header {
+	cursor: pointer;
+	display: block;
+}
+.expand-header:before {
+	content: "▸";
+	padding-right: 10px;
+}
+.expand-header.expanded:before {
+	content: "▾";
+	padding-right: 10px;
+}
+
+.expand-header.expanded + .collapsable {
+	display: block;
+}
+
+.footer-logo, .footer-title {
+	height: 100px;
+	display: inline-block;
 }
