@@ -27,3 +27,7 @@ $(function() {
 		})
 	});
 });
+
+$(function() {
+	$("header").headroom()
+})

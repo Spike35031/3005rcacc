@@ -92,12 +92,6 @@ img {
 .align-right {
 	text-align: right;
 }
-
-.giant {
-	font-size: 100px;
-	font-weight: bold;
-	font-family: 'Krona One', sans-serif;
-}
 .collapsable {
 	display: none;
 	margin: 15px;
@@ -123,4 +117,67 @@ img {
 .footer-logo, .footer-title {
 	height: 100px;
 	display: inline-block;
+}
+
+.hero {
+	background: url(https://static.pexels.com/photos/4700/nature-forest-moss-leaves.jpg);
+	background-size: cover;
+	width: 100%;
+	height: 100%;
+	width: 100vw;
+	height: 100vh;
+	text-align: center;
+	font-family: 'Krona One', sans-serif;
+}
+.hero-content {
+	position: absolute;
+	top: 30%;
+	right: 10%;
+	background-color: rgba(38, 34, 30, 0.75);
+	padding: 50px;
+	border-radius: 10px;
+}
+.hero-title {
+	color: #FFF4D2;
+	font-size: 50px;
+}
+.hero-sub {
+	color: #A78C66;
+	font-size: 20px;
+}
+
+header {
+	padding: 12.5px 0;
+	height: 50px;
+	width: 100%;
+	position: fixed;
+	background-color: rgba(38,34,30, 0.8);
+	z-index: 1000;
+	box-shadow: 0 3px 6px #16120E;
+    transition: transform 200ms linear, opacity 200ms linear;
+}
+
+#header-logo {
+	position: relative;
+	height: 50px;
+	position: relative;
+	color: #FFF4D2;
+	font-size: 25px;
+	line-height: 50px;
+	display: inline-block;
+	font-family: 'Krona One', sans-serif;
+}
+
+#header-icon {
+	vertical-align: top;
+}
+
+.headroom--pinned {
+	transform: translateY(0%);
+	opacity: 1;
+}
+
+.headroom--unpinned {
+	transform: translateY(-100%);
+	opacity: 0;
 }

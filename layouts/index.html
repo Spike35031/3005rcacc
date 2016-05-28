@@ -1,21 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>{{ .Site.Title }}</title>
-	<link rel="stylesheet" type="text/css" href="/style.css" />
-	<link rel="stylesheet" type="text/css" href="/index.css" />
-	<link href='https://fonts.googleapis.com/css?family=Krona+One' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Oxygen:400,300' rel='stylesheet' type='text/css'>
-	<link rel="icon" href="/icon.png" />
-</head>
-<body>
-<div id="hero">
-<div id="hero-content">
-	<div id="hero-title">3005 RCACC</div>
-	<div id="hero-sub">Royal Canadian Army Cadet Corps</div>
+{{partial "header.html" . }}
+<div class="hero">
+<div class="hero-content">
+	<div class="hero-title">3005 RCACC</div>
+	<div class="hero-sub">Royal Canadian Army Cadet Corps</div>
 	<a href="#whoweare" class="button button-blue">Who We Are</a>
 	<a href="#howtojoin" class="button button-yellow">How To Join</a>
-	<a href="/login/" class="button button-red">Cadets Login</a>
+	<a href="/updates/" class="button button-red">Updates</a>
 </div>
 </div>
 <section class="block-dark" id="whoweare">
@@ -109,11 +99,12 @@ To join army cadets, applicants must:
 		<img src="/icon.png" />
 	</div>
 	<div class="footer-title">
-		<div id="hero-title">3005 RCACC</div>
-		<div id="hero-sub">Royal Canadian Army Cadet Corps</div>
+		<div class="hero-title">3005 RCACC</div>
+		<div class="hero-sub">Royal Canadian Army Cadet Corps</div>
 	</div>
 </div>
 </footer>
 <script src="/jquery.min.js"></script>
-<script src="/smoothscroll.js"></script>
+<script src="/headroom.js"></script>
+<script src="/scrolling.js"></script>
 </body>
