@@ -1,0 +1,7 @@
+#F25F5C Red
+#FFE066 Yellow
+#247BA0 Blue
+#26221E Dark BG / Button FG
+#A78C66 Dark FG
+#4F473A Light BG
+#FFF4D2 Light FG
