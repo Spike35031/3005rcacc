@@ -1,11 +1,15 @@
 {{ partial "header.html" . }}
-<section class="block-light" id="whatwedo">
-<div class="half side-image" style="background-image: url(/forest-tents.jpg)"></div>
 
-<div class="half"><div class="center-block">
-<h1 class="center">What We Do</h1>
-<img src="/divider.png" class="divider" />
-
-<p>So, what happens at cadets? Well, in short, a lot! Throughout the year, cadets meet mostly on Thursday nights. On one of these training nights, cadets arrive at 18:15 (that’s 6:15pm) and have a small amount of time to talk to their friends and socialize, until the opening parade at 6:30. During this parade, we do drill (marching, etc), take attendance, and then go over the schedule for the night. After the opening parade, we usually have a couple of half hour “classes”. Don’t worry, this isn’t like school. Most lessons are really activities, and you’ll learn about things from how to tie knots to identifying military ranks to how to use a map and compass and many many things in between. At 20:00, we have a break where cadets can socialize and buy food and drinks from our canteen. After break, we usually have another lesson, but sometimes we have drill practice or do some other activity. Then, at the end of the night, we have a quick debrief before everyone goes home at 21:00 (9:00pm).</p>
-</div></div>
-</section>
+<div class="page">
+<ul class="center-block event-list">
+	{{ range .Data.Pages }}
+	<li><a href="{{ .RelPermalink }}">
+		<div class="mini-cal">
+			<span class="day">{{ .Date.Format "Monday" }}</span>
+			<span class="date">{{ .Date.Format "Jan 2" }}</span>
+		</div>
+		<h2>{{.Title}}</h2>
+	</a></li>
+	{{ end }}
+</ul>
+</div>
