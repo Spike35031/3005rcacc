@@ -1,15 +1,118 @@
 {{ partial "header.html" . }}
 
 <div class="page">
-<ul class="center-block event-list">
-	{{ range .Data.Pages }}
-	<li><a href="{{ .RelPermalink }}">
-		<div class="mini-cal">
-			<span class="day">{{ .Date.Format "Monday" }}</span>
-			<span class="date">{{ .Date.Format "Jan 2" }}</span>
-		</div>
-		<h2>{{.Title}}</h2>
-	</a></li>
-	{{ end }}
+<ul class="event-list" id="event-list">
+	<li id="loading"></li>
 </ul>
 </div>
+{{ $pages := .Data.Pages}}
+<script type="text/javascript" src="/js/datetime.js"></script>
+<script type="text/javascript">
+	if (!Date.now) {
+		Date.now = function() { return new Date().getTime(); }
+	}
+	var lastEnd = new Date();
+	var events = [
+		{{ delimit (apply .Site.Data.Events.events "jsonify" "." ) ",\n\t\t" | safeJS }}{{ if and (gt (len .Site.Data.Events.events) 0) (gt (len .Data.Pages) 0)}},{{ end }}{{ range $index, $page := .Data.Pages }}
+		{"title":"{{$page.Title}}", "crontab":"{{ $page.Date.Format "* * 02 01 *"}}", "link":"{{ .RelPermalink | safeJS}}"}{{ if ne $index (sub (len $pages) 1) }},{{ end }}
+	{{ end }}];
+
+	function addMonth(current) {
+		return new Date(current.getFullYear(), current.getMonth()+1, current.getDate());
+	}
+
+	function addDay(current) {
+		return new Date(current.getFullYear(), current.getMonth(), current.getDate()+1);
+	}
+
+	function makeCal(d) {
+		var day = document.createElement("span");
+		day.className = "day";
+		day.innerText = intToDay(d.getDay());
+
+		var date = document.createElement("span");
+		date.className = "date";
+		date.innerText = intToMonth(d.getMonth()).substring(0, 3);
+		date.innerText += " " + d.getDate();
+
+		var minical = document.createElement("div");
+		minical.className = "mini-cal";
+		minical.appendChild(day);
+		minical.appendChild(date);
+		return minical
+	}
+
+	function eventToHTML(event, date) {
+		var cal = document.createElement("div");
+		cal.className = "left";
+		cal.appendChild(makeCal(date));
+
+		var title = document.createElement("h2");
+		title.className = "right";
+		title.innerText = event.title;
+
+		var li = document.createElement("li");
+		li.setAttribute("data-timestamp", date.getTime());
+		var parent = li;
+		if (typeof event.link == "string" && event.link != "") {
+			var link = document.createElement("a");
+			link.href = event.link;
+			li.appendChild(link);
+			parent = link;
+		}
+		parent.appendChild(cal);
+		parent.appendChild(title);
+		return li;
+	}
+
+	function addEvents() {
+		var nextEnd = addMonth(lastEnd);
+		var current = lastEnd;
+		while (current < nextEnd) {
+			current = addDay(current);
+			var dayEvents = {};
+			var skipEvents = [];
+			for (var i = 0; i < events.length; i++) {
+				if (matchCron(events[i].crontab, current, true)) {
+					dayEvents[events[i].title] = eventToHTML(events[i], current);
+					skipEvents.push(events[i].replaces)
+				}
+			}
+			for (var event in dayEvents) {
+				if (skipEvents.indexOf(event) == -1) {
+					document.getElementById("event-list").insertBefore(dayEvents[event], document.getElementById("loading"))
+				}
+			}
+		}
+		lastEnd = current
+	}
+
+	function findPos(obj) {
+		var curtop = -75;
+		if (obj.offsetParent) {
+			do {
+				curtop += obj.offsetTop;
+			} while (obj = obj.offsetParent);
+		return [curtop];
+		}
+	}
+	function scrollToLatest() {
+		var list = document.getElementById("event-list");
+		var items = list.getElementsByTagName("li");
+		for (var i = 0; i < items.length; i++) {
+			if (parseInt(items[i].getAttribute("data-timestamp")) > Date.now()/1000) {
+				window.scroll(0,findPos(items[i]));
+				return;
+			}
+		}
+	}
+	function onScroll() {
+		var distanceToBottom = Math.max(document.body.offsetHeight - (window.pageYOffset + window.innerHeight), 0);
+		if (distanceToBottom < 300) {
+			addEvents();
+		}
+	}
+	addEvents();
+	//setTimeout(scrollToLatest, 100);
+	document.body.onscroll = onScroll;
+</script>
