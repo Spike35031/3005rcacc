@@ -1,4 +1,4 @@
-box: wercker/default
+box: wercker/default@0.0.2
 build:
   steps:
     - arjen/hugo-build@1.11.0:
