@@ -1,4 +1,4 @@
-box: wercker/default@0.0.2
+box: benturner/debiangit
 build:
   steps:
     - arjen/hugo-build@1.11.0:
