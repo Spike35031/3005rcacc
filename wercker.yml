@@ -1,4 +1,4 @@
-box: benturner/debiangit
+box: benturner/debiangit:0.0.1
 build:
   steps:
     - arjen/hugo-build@1.11.0:
