@@ -14,7 +14,7 @@
 	var lastEnd = new Date();
 	var events = [
 		{{ delimit (apply .Site.Data.Events.events "jsonify" "." ) ",\n\t\t" | safeJS }}{{ if and (gt (len .Site.Data.Events.events) 0) (gt (len .Data.Pages) 0)}},{{ end }}{{ range $index, $page := .Data.Pages }}
-		{"title":"{{$page.Title}}", "crontab":"{{ $page.Date.Format "* * 02 01 *"}}", "link":"{{ .RelPermalink | safeJS}}"}{{ if ne $index (sub (len $pages) 1) }},{{ end }}
+		{"title":"{{$page.Title}}", "crontab":"{{ $page.Date.Format "* * 02 01 *"}}", "link":"{{ .RelPermalink | safeJS}}"{{ with .Params.replaces }}, "replaces":"{{.}}"{{ end }}}{{ if ne $index (sub (len $pages) 1) }},{{ end }}
 	{{ end }}];
 
 	function addMonth(current) {
