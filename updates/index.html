@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>Updates - 3005 Army Cadets</title>
+	
+	<link rel="stylesheet" type="text/css" href="/css/style.css" />
+	<link href='https://fonts.googleapis.com/css?family=Krona+One' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Oxygen:400,300' rel='stylesheet' type='text/css'>
+	<link rel="icon" href="/img/icon.png" />
+</head>
+<body>
+<header>
+<div class="center-block">
+	<div id="header-logo">
+		<img src="/img/icon.png" id="header-icon" />3005 RCACC
+	</div>
+</div>
+</header>
+
+<div class="page">
+<ul class="event-list" id="event-list">
+	<li id="loading"></li>
+</ul>
+</div>
+
+<script type="text/javascript" src="/js/datetime.js"></script>
+<script type="text/javascript">
+	if (!Date.now) {
+		Date.now = function() { return new Date().getTime(); }
+	}
+	var lastEnd = new Date();
+	var events = [
+		{"crontab":"30 18 * SEP,OCT,NOV,DEC,JAN,FEB,MAR,APR,MAY,JUN THU","title":"Parade Night"},
+		{"crontab":"45 18 * SEP,OCT,NOV,DEC,JAN,FEB,MAR,APR,MAY,JUN MON","title":"Band"},
+		{"crontab":"15 18 * SEP,OCT,NOV,DEC,JAN,FEB,MAR,APR,MAY,JUN THU#1","replaces":"Parade Night","title":"CO's Parade"},
+		{"title":"Welcome Back \x26 Sgt. Schofield\x27s Age-out", "crontab":"* * 08 09 *", "link":"\/updates\/2016-09-08\/", "replaces":"Parade Night"}
+	];
+
+	function addMonth(current) {
+		return new Date(current.getFullYear(), current.getMonth()+1, current.getDate());
+	}
+
+	function addDay(current) {
+		return new Date(current.getFullYear(), current.getMonth(), current.getDate()+1);
+	}
+
+	function makeCal(d) {
+		var day = document.createElement("span");
+		day.className = "day";
+		day.innerText = intToDay(d.getDay());
+
+		var date = document.createElement("span");
+		date.className = "date";
+		date.innerText = intToMonth(d.getMonth()).substring(0, 3);
+		date.innerText += " " + d.getDate();
+
+		var minical = document.createElement("div");
+		minical.className = "mini-cal";
+		minical.appendChild(day);
+		minical.appendChild(date);
+		return minical
+	}
+
+	function eventToHTML(event, date) {
+		var cal = document.createElement("div");
+		cal.className = "left";
+		cal.appendChild(makeCal(date));
+
+		var title = document.createElement("h2");
+		title.className = "right";
+		title.innerText = event.title;
+
+		var li = document.createElement("li");
+		li.setAttribute("data-timestamp", date.getTime());
+		var parent = li;
+		if (typeof event.link == "string" && event.link != "") {
+			var link = document.createElement("a");
+			link.href = event.link;
+			li.appendChild(link);
+			parent = link;
+		}
+		parent.appendChild(cal);
+		parent.appendChild(title);
+		return li;
+	}
+
+	function addEvents() {
+		var nextEnd = addMonth(lastEnd);
+		var current = lastEnd;
+		while (current < nextEnd) {
+			current = addDay(current);
+			var dayEvents = {};
+			var skipEvents = [];
+			for (var i = 0; i < events.length; i++) {
+				if (matchCron(events[i].crontab, current, true)) {
+					dayEvents[events[i].title] = eventToHTML(events[i], current);
+					skipEvents.push(events[i].replaces)
+				}
+			}
+			for (var event in dayEvents) {
+				if (skipEvents.indexOf(event) == -1) {
+					document.getElementById("event-list").insertBefore(dayEvents[event], document.getElementById("loading"))
+				}
+			}
+		}
+		lastEnd = current
+	}
+
+	function findPos(obj) {
+		var curtop = -75;
+		if (obj.offsetParent) {
+			do {
+				curtop += obj.offsetTop;
+			} while (obj = obj.offsetParent);
+		return [curtop];
+		}
+	}
+	function scrollToLatest() {
+		var list = document.getElementById("event-list");
+		var items = list.getElementsByTagName("li");
+		for (var i = 0; i < items.length; i++) {
+			if (parseInt(items[i].getAttribute("data-timestamp")) > Date.now()/1000) {
+				window.scroll(0,findPos(items[i]));
+				return;
+			}
+		}
+	}
+	function onScroll() {
+		var distanceToBottom = Math.max(document.body.offsetHeight - (window.pageYOffset + window.innerHeight), 0);
+		if (distanceToBottom < 300) {
+			addEvents();
+		}
+	}
+	addEvents();
+	
+	document.body.onscroll = onScroll;
+</script>
