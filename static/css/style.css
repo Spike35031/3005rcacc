@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /***************************************/
 /*                                     */
 /* Copyright 2015 (c) 3005 Army Cadets */
@@ -92,11 +91,11 @@ img {
   display: block; }
 
 .expand-header:before {
-  content: "Γû╕";
+  content: "\25B8";
   padding-right: 10px; }
 
 .expand-header.expanded:before {
-  content: "Γû╛";
+  content: "\25BE";
   padding-right: 10px; }
 
 .expand-header.expanded + .collapsable {

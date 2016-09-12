@@ -113,11 +113,11 @@ img {
 	display: block;
 }
 .expand-header:before {
-	content: "▸";
+	content: "\25B8";
 	padding-right: 10px;
 }
 .expand-header.expanded:before {
-	content: "▾";
+	content: "\25BE";
 	padding-right: 10px;
 }
 
