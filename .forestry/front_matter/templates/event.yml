@@ -31,4 +31,4 @@ fields:
   label: Image
   description: An optional image to show at the top of the post
   config:
-    maxSize: '1024'
+    maxSize: '1048576'
