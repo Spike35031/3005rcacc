@@ -22,3 +22,7 @@ fields:
   name: replaces
   label: Replaces
   description: The name of an event to override (must be same date)
+- type: file
+  name: image
+  label: Image
+  description: An optional image to show at the top of the post
