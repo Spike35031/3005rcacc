@@ -1,6 +1,8 @@
 +++
-date = "2017-09-22T21:34:09+00:00"
+date = "2017-10-19T14:34:09-07:00"
 draft = true
+replaces = "Parade Night"
 title = "FTX Prep"
 
 +++
+### Details TBA
