@@ -16,12 +16,7 @@ fields:
   config:
     required: true
   description: The date of the event
-- type: select
-  config:
-    source:
-      type: datafiles
-      file: events-json
-  default: events
-  label: Replaces
+- type: text
   name: replaces
-  description: A regularly occurring event to replace (optional)
+  label: Replaces
+  description: The name of an event to override (must be same date)
