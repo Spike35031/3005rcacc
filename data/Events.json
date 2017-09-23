@@ -1,4 +1,6 @@
 [
-  {"crontab":"30 18 * * THU", "title": "Parade Night"}
+  {
+    "crontab": "30 18 * * THU",
+    "title": "Parade Night"
+  }
 ]
-
