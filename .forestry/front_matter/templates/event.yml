@@ -1,0 +1,25 @@
+---
+hide_body: false
+fields:
+- type: text
+  name: title
+  label: Event Title
+  description: Displayed in event list and at the top of the post
+  config:
+    required: true
+- type: datetime
+  default: Invalid date
+  label: Date
+  name: date
+  config:
+    required: true
+  description: The date of the event
+- type: select
+  config:
+    source:
+      type: datafiles
+      file: events-json
+  default: events
+  label: Replaces
+  name: replaces
+  description: A regularly occurring event to replace (optional)
