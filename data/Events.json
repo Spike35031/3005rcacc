@@ -1,7 +1,4 @@
-{
-	"events":[
-		{"crontab":"30 18 * SEP,OCT,NOV,DEC,JAN,FEB,MAR,APR,MAY,JUN THU", "title": "Parade Night"},
-		{"crontab":"45 18 * SEP,OCT,NOV,DEC,JAN,FEB,MAR,APR,MAY,JUN MON", "title": "Band"},
-		{"crontab":"15 18 * SEP,OCT,NOV,DEC,JAN,FEB,MAR,APR,MAY,JUN THU#1", "title":"CO's Parade", "replaces":"Parade Night"}
-	]
-}
+[
+  {"crontab":"30 18 * * THU", "title": "Parade Night"}
+]
+
