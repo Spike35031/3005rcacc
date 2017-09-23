@@ -11,6 +11,10 @@ fields:
   description: Displayed in event list and at the top of the post
   config:
     required: true
+- type: text
+  name: subtitle
+  label: Subtitle
+  description: A subtitle, defaults to the date of the event if not set
 - type: datetime
   default: Invalid date
   label: Date
