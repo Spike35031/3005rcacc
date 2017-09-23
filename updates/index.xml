@@ -6,8 +6,19 @@
     <description>Recent content in Updates on 3005 Army Cadets</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 08 Sep 2016 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://3005rcacc.com/updates/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 22 Sep 2017 21:08:34 +0000</lastBuildDate>
+    
+	<atom:link href="http://3005rcacc.com/updates/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Tag Day</title>
+      <link>http://3005rcacc.com/updates/tag-day-sep-2017/</link>
+      <pubDate>Fri, 22 Sep 2017 21:08:34 +0000</pubDate>
+      
+      <guid>http://3005rcacc.com/updates/tag-day-sep-2017/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Welcome Back &amp; Sgt. Schofield&#39;s Age-out</title>
@@ -15,18 +26,9 @@
       <pubDate>Thu, 08 Sep 2016 00:00:00 +0000</pubDate>
       
       <guid>http://3005rcacc.com/updates/2016-09-08/</guid>
-      <description>&lt;p&gt;Hello cadets! I hope everyone enjoyed their summer. I can&amp;rsquo;t wait to hear your stories.&lt;/p&gt;
-
-&lt;p&gt;We are back to cadets this Thursday 8 September and it is a special night. Sgt Schofield will be aging out so it will be a parade our first night back.&lt;/p&gt;
-
-&lt;p&gt;You have plenty of time so ensure your uniforms are clean and pressed, your hair is cut and your shoes, polished. No excuses to not have a uniform on. I&amp;rsquo;m sure Sgt Schofield would appreciate everyone in attendance and dressed appropriately.&lt;/p&gt;
-
-&lt;p&gt;We have a very exciting year planned that the staff are excited to share with you.&lt;/p&gt;
-
-&lt;p&gt;See you Thursday!&lt;/p&gt;
-
-&lt;p&gt;Capt Fearn&lt;/p&gt;
-</description>
+      <description>Hello cadets! I hope everyone enjoyed their summer. I can&amp;rsquo;t wait to hear your stories.
+We are back to cadets this Thursday 8 September and it is a special night. Sgt Schofield will be aging out so it will be a parade our first night back.
+You have plenty of time so ensure your uniforms are clean and pressed, your hair is cut and your shoes, polished. No excuses to not have a uniform on.</description>
     </item>
     
   </channel>

@@ -1,14 +1,37 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://3005rcacc.com/</loc>
-    <lastmod>2016-09-08T00:00:00+00:00</lastmod>
+    <loc>http://3005rcacc.com/updates/tag-day-sep-2017/</loc>
+    <lastmod>2017-09-22T21:08:34+00:00</lastmod>
   </url>
   
   <url>
     <loc>http://3005rcacc.com/updates/2016-09-08/</loc>
     <lastmod>2016-09-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://3005rcacc.com/</loc>
+    <lastmod>2017-09-22T21:08:34+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://3005rcacc.com/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://3005rcacc.com/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://3005rcacc.com/updates/</loc>
+    <lastmod>2017-09-22T21:08:34+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
 </urlset>
